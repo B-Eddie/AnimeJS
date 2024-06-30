@@ -3,21 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime.js Intro</title>
+    <title>Anime.js Scroll Down Animation</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
     <div class="navbar">
-        <a href="#">Home</a>
+        <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
     </div>
-    <div class="intro">
+    <div id="home" class="section intro">
         <h1>Hey, I'm Eddie</h1>
+        <div class="scroll-down">
+            <span>Scroll Down</span>
+            <div class="scroll-icon">
+                <span class="scroll-line"></span>
+            </div>
+        </div>
     </div>
+
+    <div id="about" class="section">
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod magna id felis commodo, vitae volutpat nisl gravida.</p>
+    </div>
+
+    <div id="portfolio" class="section">
+        <h2>My Portfolio</h2>
+        <p>Here are some projects I've worked on.</p>
+    </div>
+
+    <div id="contact" class="section">
+        <h2>Contact Me</h2>
+        <p>You can reach me at eddie@example.com</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
-<link rel="stylesheet" href="styles.css">
 </html>
