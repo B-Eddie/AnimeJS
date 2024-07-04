@@ -9,12 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function startDrawing(event) {
         drawing = true;
+        ctx.beginPath();
         draw(event);
     }
 
     function endDrawing() {
         drawing = false;
-        ctx.beginPath(); // change to see what happens
+        ctx.moveTo(x, y); // add this line to start a new path
     }
     
     function draw(event) {
