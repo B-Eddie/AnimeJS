@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const canvas = document.getElementById('drawingCanvas');
+    const canvas = document.getElementById('Canvas');
     const ctx = canvas.getContext('2d');
 
     canvas.width = window.innerWidth;
