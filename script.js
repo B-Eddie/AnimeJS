@@ -32,7 +32,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
-        ctx.strokeStyle = 'black';
+
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, 'red');
+        gradient.addColorStop(0.25, 'orange');
+        gradient.addColorStop(0.5, 'yellow');
+        gradient.addColorStop(0.75, 'green');
+        gradient.addColorStop(1, 'blue');
+        ctx.strokeStyle = gradient;
 
         ctx.lineTo(x, y);
         ctx.stroke();

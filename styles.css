@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Rigraf';
     overflow: hidden;
 }
 
@@ -21,9 +21,24 @@
     --dark-purple: #A599E9;
 }
 
+@font-face {
+    font-family: 'Rigraf';
+    src: url('Rigraf/DXRigraf-SemiBold.otf');
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 body {
     background-color: var(--orange);
     user-select: none;
+    animation: 1s linear 0s fadein;
 }
 
 .navbar {
@@ -54,6 +69,7 @@ a {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: visible;
 }
 
 #home h1 {
@@ -67,6 +83,20 @@ a {
     justify-content: space-evenly;
     width: 15vw;
     padding-top: 2.5vh;
+    overflow: visible;
+}
+
+.others a {
+    overflow: visible;
+}
+
+.others a svg {
+    z-index: 2;
+    transition: transform 0.2s ease-in-out;
+}
+
+.others a svg:hover {
+    transform: scale(1.2);
 }
 
 .over {
@@ -85,4 +115,26 @@ a {
     position: absolute;
     color: rgb(177, 162, 162);
     bottom: 16em;
+    width: 20vw;
+    transition: all 0.3s ease-in-out;
+}
+
+#txt:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.images img {
+    position: absolute;
+    width: 10vw;
+    height: auto;
+}
+
+#one {
+    bottom: 1em;
+    left: 1em;
+}
+
+#two {
+    top: 1em;
+    right: 1em;
 }
