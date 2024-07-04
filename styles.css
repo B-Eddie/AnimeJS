@@ -84,5 +84,5 @@ a {
 #txt {
     position: absolute;
     color: rgb(177, 162, 162);
-    bottom: 35vh;
+    bottom: calc(35vh - env(safe-area-inset-bottom));
 }
