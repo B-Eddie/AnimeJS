@@ -1,17 +1,54 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const scrollDown = document.querySelector('.scroll-down');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    scrollDown.addEventListener('click', function() {
-        const targetSection = document.querySelector('.section:not(.intro):not(.active)');
+    let drawing = false;
+
+    function startDrawing(event) {
+        drawing = true;
+        draw(event);
+    }
+
+    function endDrawing() {
+        drawing = false;
+        ctx.beginPath(); // change to see what happens
+    }
+    
+    function draw(event) {
+        if (!drawing) return;
         
-        if (targetSection) {
-            anime({
-                targets: 'html, body',
-                scrollTop: targetSection.offsetTop,
-                duration: 1000,
-                easing: 'easeInOutCubic'
-            });
-            targetSection.classList.add('active');
+        let x, y;
+        if (event.touches) {
+            x = event.touches[0].clientX;
+            y = event.touches[0].clientY;
+        } else {
+            x = event.clientX;
+            y = event.clientY;
         }
+
+        ctx.lineWidth = 5; // change width
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = '#00295A'; // change color
+
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+    }
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mouseup', endDrawing);
+    canvas.addEventListener('mousemove', draw);
+
+    canvas.addEventListener('touchstart', startDrawing);
+    canvas.addEventListener('touchup', endDrawing);
+    canvas.addEventListener('touchmove', draw);
+
+    window.addEventListener('resize', function() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     });
 });
